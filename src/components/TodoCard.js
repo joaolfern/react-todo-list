@@ -9,7 +9,7 @@ function TodoCard(props) {
     return (
         <div className="listItem">
             <div className="todo pointer"
-                onClick={() => props.selectCbx(props.data.id)}>
+                onClick={() => props.markTodo(props.data.id)}>
                 <span>
                     <i className="fa fa-check"
                         style={

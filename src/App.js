@@ -14,7 +14,7 @@ class App extends React.Component {
       text: '',
       data: todos
     }
-    this.selectCbx = this.selectCbx.bind(this)
+    this.markTodo = this.markTodo.bind(this)
     this.handleAdding = this.handleAdding.bind(this)
     this.handleTyping = this.handleTyping.bind(this)
     this.deleteTodo = this.deleteTodo.bind(this)
@@ -32,7 +32,7 @@ class App extends React.Component {
     })
   }
 
-  selectCbx(id) {
+  markTodo(id) {
     this.setState(prevState => {
       const updatedState = prevState.data.map(todo => {
         if (todo.id === id)
@@ -73,19 +73,24 @@ class App extends React.Component {
       .map(card => <TodoCard
         key={card.id}
         data={card}
-        selectCbx={this.selectCbx}
+        markTodo={this.markTodo}
         className="listContainer"
-        deleteTodo={this.deleteTodo} />)
+        deleteTodo={this.deleteTodo} />
+      )
 
     return (
       <div className="app">
         <Waves />
+
         <div className="wrapper">
+
           <Input
             handleTyping={this.handleTyping}
             handleAdding={this.handleAdding}
             text={this.state.text} />
+
           <div className="listContainer">{todoComponents}</div>
+
         </div>
       </div>
     )
