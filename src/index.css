@@ -1,13 +1,167 @@
+/*-------------------
+    Global Styles
+-------------------*/
+
 body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+    min-width: 300px;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.pointer {
+    cursor: pointer;
+}
+
+.unselectable {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+*:focus, *:active {
+    outline: none;
+    -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+}
+
+/*---------------
+   Typography
+---------------*/
+
+.app {
+    font-family: 'Baloo Tamma 2', cursive;
+    font-size: 1.2em;
+}
+
+.inputContainer h1 {
+    font-size: 2.5em;
+}
+
+.inputBar {
+    font-size: 1.2em;
+}
+
+/*---------------
+     Layout
+---------------*/
+
+.waves {
+    position: absolute;
+    min-width: 1300px;
+    top: 0;
+}
+
+.app {
+    overflow-x: hidden;
+    background-color: rgba(240, 0, 240, 0.612);
+    position: relative;
+    min-height: 100vh;
+}
+
+.wrapper {
+    z-index: 1;
+    width: 65%;
+    margin: 0 auto;
+    position: relative;
+}
+
+.addBtn {
+    background-color: #F663F6;
+    width: 3em;
+    border-radius: 0 20px 20px 0;
+}
+
+.textInput {
+    padding-left: .5em;
+    border-radius: 20px 0 0 20px;
+}
+
+.inputBar {
+    height: 1.5em;
+    border: none;
+}
+
+.inputContainer {
+    padding: 3em 0;
+    text-align: center;
+}
+
+.listContainer {
+    width: 50%;
+    margin: 0 auto;
+}
+
+.listContainer p {
+    display: inline;
+    margin-left: .5em;
+}
+
+.listItem {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.todo {
+    max-width: 80%;
+}
+
+.listItem+.listItem {
+    margin-top: 1em;
+}
+
+@media(max-width: 800px) {
+    .listContainer {
+        width: 100%;
+    }
+    @media (max-width: 530px) {
+        .textInput {
+            width: 50%;
+        }
+    }
+}
+
+/*---------------
+    Animation
+---------------*/
+
+.todoText:hover {
+    color: rgb(255, 255, 255);
+    font-weight: bold;
+}
+
+.deleteBtn:hover {
+    color: white;
+    transform: scale(1.1);
+    opacity: .8;
+}
+
+.addBtn {
+    position: relative;
+}
+
+.addBtn span {
+    position: relative;
+    z-index: 2;
+}
+
+.addBtn::before {
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 1;
+    height: 1.5em;
+    width: 0;
+    border-radius: 0 20px 20px 0;
+    background-color: #FFD700;
+    content: '';
+    transition: all .1s linear;
+}
+
+.addBtn:active:before {
+    width: 100%;
+}
+
+.addBtn:hover {
+    background-color: rgb(245, 77, 245);
 }
